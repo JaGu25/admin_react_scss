@@ -1,0 +1,91 @@
+@import "assets/scss/utils/variables";
+@import "assets/scss/utils/mixins";
+
+.login {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr;
+
+    @include sm {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__hero,
+    &__form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title,
+    &__icon {
+        font-size: 28px;
+        color: white;
+    }
+
+    &__icon {
+        margin-right: 0.5rem;
+    }
+
+    &__hero {
+        background-color: $primary-color;
+        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+        display: none;
+        @include sm {
+            display: flex;
+        }
+    }
+
+    &__form {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: left;
+        padding: 0rem 1.5rem;
+
+        @include xs {
+            padding: 0rem 4rem;
+            margin: 0 auto;
+        }
+    }
+
+    &__img {
+        border-radius: 50%;
+    }
+
+    .form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.5rem;
+
+        @include xs { 
+            min-width: 350px;
+        }
+
+        &__input {
+            display: flex;
+            flex-direction: column;
+
+            label {
+                font-weight: 700;
+                margin-bottom: 0.1rem;
+            }
+
+            input {
+                border: 1px solid #dae4e9;
+                padding: 0.5rem;
+                border-radius: 5px;
+                box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        .btn {
+            background-color: $primary-color;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            align-self: flex-start;
+            cursor: pointer;
+        }
+    }
+}

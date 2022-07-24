@@ -1,0 +1,21 @@
+@import "assets/scss/utils/mixins";
+@import "assets/scss/utils/variables";
+
+.main {
+    width: 100%;
+    min-height: calc(100vh - 72px);
+    margin: 64px 0px 0px 0px;
+    padding: .5rem;
+
+    @include sm {
+        width: calc(100% - 68px);
+        margin: 64px 0px 0px 68px;
+    }
+
+    .main-container {
+        background-color: white;
+        box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.1);
+        min-height: calc(100vh - 80px);
+        padding: 0.5rem;
+    }
+}

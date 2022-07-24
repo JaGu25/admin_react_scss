@@ -1,0 +1,89 @@
+/*========== VARIABLES CSS ==========*/
+:root {
+    --header-height: 3.5rem;
+    --nav-width: 219px;
+
+    /*========== Colors ==========*/
+    --first-color: #0891b2;
+    --first-color-light: #a7d6e1;
+    --title-color: #19181b;
+    --text-color: #58555e;
+    --text-color-light: #a5a1aa;
+    --body-color: #f9f6fd;
+    --container-color: #ffffff;
+
+    /*========== Font and typography ==========*/
+    --body-font: "Nunito", sans-serif;
+
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.75rem;
+    --smaller-font-size: 0.75rem;
+
+    @media screen and (min-width: 1024px) {
+        --normal-font-size: 1rem;
+        --small-font-size: 0.875rem;
+        --smaller-font-size: 0.813rem;
+    }
+
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*========== z index ==========*/
+    --z-fixed: 100;
+}
+
+/*========== HEADER ==========*/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--container-color);
+    box-shadow: 0 1px 0 rgba(22, 8, 43, 0.1);
+    padding: 0 1rem;
+    z-index: var(--z-fixed);
+
+    &__container {
+        display: flex;
+        align-items: center;
+        height: var(--header-height);
+        justify-content: space-between;
+    }
+
+    &__img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+    }
+    &__logo {
+        color: var(--title-color);
+        font-weight: var(--font-medium);
+        display: none;
+    }
+    &__search {
+        display: flex;
+        padding: 0.4rem 0.75rem;
+        background-color: var(--first-color-light);
+        border-radius: 0.25rem;
+    }
+    &__input {
+        width: 100%;
+        border: none;
+        outline: none;
+        background-color: var(--first-color-light);
+
+        &::placeholder {
+            font-family: var(--body-font);
+            color: var(--text-color);
+        }
+    }
+    &__icon,
+    &__toggle {
+        font-size: 1.2rem;
+    }
+    &__toggle {
+        color: var(--title-color);
+        cursor: pointer;
+    }
+}
