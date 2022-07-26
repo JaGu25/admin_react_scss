@@ -1,53 +1,20 @@
-/*========== VARIABLES CSS ==========*/
-:root {
-    --header-height: 3.5rem;
-    --nav-width: 219px;
+@import "assets/scss/utils/mixins";
+@import "assets/scss/utils/variables";
 
-    /*========== Colors ==========*/
-    --first-color: #0891b2;
-    --first-color-light: #a7d6e1;
-    --title-color: #19181b;
-    --text-color: #58555e;
-    --text-color-light: #a5a1aa;
-    --body-color: #f9f6fd;
-    --container-color: #ffffff;
-
-    /*========== Font and typography ==========*/
-    --body-font: "Nunito", sans-serif;
-
-    --normal-font-size: 0.938rem;
-    --small-font-size: 0.75rem;
-    --smaller-font-size: 0.75rem;
-
-    @media screen and (min-width: 1024px) {
-        --normal-font-size: 1rem;
-        --small-font-size: 0.875rem;
-        --smaller-font-size: 0.813rem;
-    }
-
-    /*========== Font weight ==========*/
-    --font-medium: 500;
-    --font-semi-bold: 600;
-
-    /*========== z index ==========*/
-    --z-fixed: 100;
-}
-
-/*========== HEADER ==========*/
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--container-color);
+    background-color: $white;
     box-shadow: 0 1px 0 rgba(22, 8, 43, 0.1);
     padding: 0 1rem;
-    z-index: var(--z-fixed);
+    z-index: 100;
 
     &__container {
         display: flex;
         align-items: center;
-        height: var(--header-height);
+        height: 3.5rem;
         justify-content: space-between;
     }
 
@@ -57,25 +24,24 @@
         border-radius: 50%;
     }
     &__logo {
-        color: var(--title-color);
-        font-weight: var(--font-medium);
+        color: $title-color;
+        font-weight: 500;
         display: none;
     }
     &__search {
         display: flex;
         padding: 0.4rem 0.75rem;
-        background-color: var(--first-color-light);
+        background-color: $title-color;
         border-radius: 0.25rem;
     }
     &__input {
         width: 100%;
         border: none;
         outline: none;
-        background-color: var(--first-color-light);
+        background-color: $secondary-color;
 
         &::placeholder {
-            font-family: var(--body-font);
-            color: var(--text-color);
+            color: $text-color;
         }
     }
     &__icon,
@@ -83,7 +49,30 @@
         font-size: 1.2rem;
     }
     &__toggle {
-        color: var(--title-color);
+        color: $title-color;
         cursor: pointer;
+    }
+
+    @include sm {
+        padding: 0 3rem 0 6rem;
+
+        &__container {
+            height: calc(4rem);
+        }
+        &__search {
+            width: 300px;
+            padding: 0.55rem 0.75rem;
+        }
+        &__toggle {
+            display: none;
+        }
+        &__logo {
+            display: block;
+        }
+        &__img {
+            width: 40px;
+            height: 40px;
+            order: 1;
+        }
     }
 }

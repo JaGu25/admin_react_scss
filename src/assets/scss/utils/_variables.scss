@@ -1,16 +1,28 @@
 $font-primary: 'Nunito', sans-serif;
+
+// colors
+$primary-color:#0891b2;
+$secondary-color: #22d3ee;
+
+$title-color: #19181b;
+$text-color: #58555e;
+$text-color-light: #a5a1aa;
+
 $grey-light-1: #f7f7f7;
 $grey-light-2: #eee;
 
-$grey-dark: #777;
+$grey-dark-1: #777;
 $grey-dark-2: #999;
 $grey-dark-3: #333;
 $grey-dark-4: #dae4e9;
 
 $white: #fff;
 $black: #000;
-$primary-color:#0891b2;
-$secondary-color: #22d3ee;
+
+// fonts sizes
+$normal-font: 14px;
+$small-font: 12px;
+$smaller-font: 10px;
 
 // breakpoints
 $xs: 560px;

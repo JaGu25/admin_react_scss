@@ -1,197 +1,18 @@
-/*========== VARIABLES CSS ==========*/
-:root {
-    --header-height: 3.5rem;
-    --nav-width: 219px;
+@import "assets/scss/utils/mixins";
+@import "assets/scss/utils/variables";
 
-    /*========== Colors ==========*/
-    --first-color: #0891b2;
-    --first-color-light: #a7d6e1;
-    --title-color: #19181b;
-    --text-color: #58555e;
-    --text-color-light: #a5a1aa;
-    --body-color: #f9f6fd;
-    --container-color: #ffffff;
-
-    /*========== Font and typography ==========*/
-    --body-font: "Nunito", sans-serif;
-
-    --normal-font-size: 0.938rem;
-    --small-font-size: 0.75rem;
-    --smaller-font-size: 0.75rem;
-
-    @media screen and (min-width: 1024px) {
-        --normal-font-size: 1rem;
-        --small-font-size: 0.875rem;
-        --smaller-font-size: 0.813rem;
-    }
-
-    /*========== Font weight ==========*/
-    --font-medium: 500;
-    --font-semi-bold: 600;
-
-    /*========== z index ==========*/
-    --z-fixed: 100;
-}
-
-/*========== NAV ==========*/
 .nav {
     position: fixed;
     top: 0;
     left: -100%;
     height: 100vh;
     padding: 1rem 1rem 0;
-    background-color: var(--container-color);
+    background-color: $white;
     box-shadow: 1px 0 0 rgba(22, 8, 43, 0.1);
-    z-index: var(--z-fixed);
+    z-index: 100;
     transition: 0.4s;
 
-    &__container {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding-bottom: 3rem;
-        overflow: auto;
-        scrollbar-width: none; /* For mozilla */
-
-        /* For Google Chrome and others */
-        &::-webkit-scrollbar {
-            display: none;
-        }
-    }
-
-    &__logo {
-        font-weight: var(--font-semi-bold);
-        margin-bottom: 2.5rem;
-    }
-
-    &__list,
-    &__items {
-        display: grid;
-    }
-    &__list {
-        row-gap: 2.5rem;
-    }
-    &__items {
-        row-gap: 1.5rem;
-    }
-    &__subtitle {
-        font-size: var(--normal-font-size);
-        text-transform: uppercase;
-        letter-spacing: 0.1rem;
-        color: var(--text-color-light);
-    }
-    &__link {
-        display: flex;
-        align-items: center;
-        color: var(--text-color);
-
-        &:hover {
-            color: var(--first-color);
-        }
-    }
-    &__icon {
-        font-size: 1.2rem;
-        margin-right: 0.5rem;
-    }
-    &__name {
-        font-size: var(--small-font-size);
-        font-weight: var(--font-medium);
-        white-space: nowrap;
-    }
-    &__logout {
-        margin-top: 5rem;
-    }
-
-    /* Dropdown */
-    &__dropdown {
-        overflow: hidden;
-        max-height: 21px;
-        transition: 0.4s ease-in-out;
-
-        &-collapse {
-            background-color: var(--first-color-light);
-            border-radius: 0.25rem;
-            margin-top: 1rem;
-        }
-        &-content {
-            display: grid;
-            row-gap: 0.5rem;
-            padding: 0.75rem 2.5rem 0.75rem 1.8rem;
-        }
-
-        &-item {
-            font-size: var(--smaller-font-size);
-            font-weight: var(--font-medium);
-            color: var(--text-color);
-
-            &:hover {
-                color: var(--first-color);
-            }
-        }
-        &-icon {
-            margin-left: auto;
-            transition: 0.4s;
-        }
-
-        /* Show collapse */
-        &:hover {
-            max-height: 100rem;
-        }
-
-        /*Rotate icon arrow*/
-        &:hover &-icon {
-            transform: rotate(180deg);
-        }
-    }
-}
-
-/*===== Show menu =====*/
-.show-menu {
-    left: 0;
-}
-
-/*===== Active link =====*/
-.active {
-    color: var(--first-color);
-}
-
-/* ========== MEDIA QUERIES ==========*/
-/* For small devices reduce search*/
-@media screen and (max-width: 320px) {
-    .header {
-        &__search {
-            width: 70%;
-        }
-    }
-}
-
-@media screen and (min-width: 768px) {
-
-    .header {
-        padding: 0 3rem 0 6rem;
-
-        &__container {
-            height: calc(var(--header-height) + 0.5rem);
-        }
-        &__search {
-            width: 300px;
-            padding: 0.55rem 0.75rem;
-        }
-        &__toggle {
-            display: none;
-        }
-        &__logo {
-            display: block;
-        }
-        &__img {
-            width: 40px;
-            height: 40px;
-            order: 1;
-        }
-    }
-
-    .nav {
+    @include sm {
         left: 0;
         padding: 1.2rem 1.5rem 0;
         width: 68px;
@@ -217,7 +38,7 @@
         }
 
         &:hover {
-            width: var(--nav-width);
+            width: 220px;
         }
 
         &:hover &__logo-name {
@@ -233,4 +54,107 @@
             opacity: 1;
         }
     }
+
+    &__container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 3rem;
+        overflow: auto;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__logo {
+        font-weight: 600;
+        margin-bottom: 2.5rem;
+    }
+
+    &__list,
+    &__items {
+        display: grid;
+    }
+    &__list {
+        row-gap: 2.5rem;
+    }
+    &__items {
+        row-gap: 1.5rem;
+    }
+    &__subtitle {
+        font-size: $normal-font;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        color: $text-color-light;
+    }
+    &__link {
+        display: flex;
+        align-items: center;
+        color: $text-color;
+
+        &:hover {
+            color: $primary-color;
+        }
+    }
+    &__icon {
+        font-size: 1.2rem;
+        margin-right: 0.5rem;
+    }
+    &__name {
+        font-size: $normal-font;
+        font-weight: 500;
+        white-space: nowrap;
+    }
+    &__logout {
+        margin-top: 5rem;
+    }
+
+    &__dropdown {
+        overflow: hidden;
+        max-height: 21px;
+        transition: 0.4s ease-in-out;
+
+        &-collapse {
+            background-color: $secondary-color;
+            border-radius: 0.25rem;
+            margin-top: 1rem;
+        }
+        &-content {
+            display: grid;
+            row-gap: 0.5rem;
+            padding: 0.75rem 2.5rem 0.75rem 1.8rem;
+        }
+
+        &-item {
+            font-size: $small-font;
+            font-weight: 500;
+            color: $text-color;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+        &-icon {
+            margin-left: auto;
+            transition: 0.4s;
+        }
+
+        &:hover {
+            max-height: 100rem;
+        }
+
+        &:hover &-icon {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.show-menu {
+    left: 0;
+}
+.active {
+    color: $primary-color;
 }
