@@ -19,7 +19,7 @@ const Bar: React.FC<IProps> = () => {
     return (
         <header className="header">
             <div className="header__container">
-                <img src={perfil} alt="" className="header__img" />
+                <img src={perfil} alt="perfil" className="header__img" />
 
                 <a href="#" className="header__logo">DixonAlbi</a>
 
