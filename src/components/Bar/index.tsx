@@ -1,6 +1,6 @@
 import React from 'react'
 import './index.scss'
-import perfil from 'assets/imgs/perfil.jpg'
+import perfil from 'assets/imgs/guitar.jpg'
 import useKeypress from 'hooks/useKeypress'
 
 interface IProps { }
