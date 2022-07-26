@@ -1,11 +1,12 @@
-import React from 'react'
-import './index.scss'
-import perfil from 'assets/imgs/perfil.jpg'
-import useKeypress from 'hooks/useKeypress'
+import React from 'react';
+import './index.scss';
+import perfil from 'assets/imgs/guitar.png';
+import useKeypress from 'hooks/useKeypress';
 
-interface IProps { }
+interface IProps {}
 
 const Bar: React.FC<IProps> = () => {
+
 
     const handleToogleMenu = () => {
         let nav = document.getElementById('navbar');
